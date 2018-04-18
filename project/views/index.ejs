@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+
+    <script type="text/javascript" src="/bootstrap/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+  </head>
+  <body>
+
+  	<%- include("header.ejs",{title:"首页",show:true})%>
+  	<p>欢迎-<%= currentUser%>-回来</p>
+    <div class="container">
+    	<table class="table">
+            <caption>已发表文章</caption>
+            <thead>
+              <tr>
+                <th>作者</th>
+                <th>标题</th>
+                <th>创建时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0;i<info.length;i++){%>
+                <tr>
+                  <th scope="row"><%= info[i].author%></th>
+                  <td><a href="/detail/<%= info[i]._id%>"><%= info[i].title%></a></td>
+                  <td><%= (function(){
+                      return info[i].createDate
+                  })() %></td>
+                  <td>
+                    <a class="btn btn-warning" href="/article/update/<%= info[i]._id%>" role="button">更新</a>
+                    <a class="btn btn-danger" href="/article/delete/<%= info[i]._id%>" role="button" id="<%= info[i]._id%>">删除</a>
+                  <!--  <a class="btn btn-danger btn-kerwin"  role="button" id="<%= info[i]._id%>">delete</a> -->
+                  </td>
+                </tr>
+              <%}%>
+            </tbody>
+          </table>
+    </div>
+
+    <script type="text/javascript">
+
+        $(".btn-kerwin").click(function(){
+
+            console.log($(this).attr("id"));
+            //显示loadding 框
+            $.ajax({
+              url:"/article/delete",
+              data:{id:$(this).attr("id")},
+              success:function(result){
+                if(result.deleteok){
+
+                }
+              }
+            })
+        })
+    </script>
+  </body>
+</html>

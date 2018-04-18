@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+    <script type="text/javascript" src="/bootstrap/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+
+    <style>
+
+        #list img {
+          width: 64px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">首页</a>
+        </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="文章标题">
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">下载<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">doc文本</a></li>
+            <li><a href="#">txt文本</a></li>
+            <li><a href="#">rar压缩包</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">取消下载</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+      </nav>
+      <div id="list" style="height:250px">
+      </div>
+  	  <nav aria-label="Page navigation" style="text-align: center">
+        <ul class="pagination">
+        </ul>
+      </nav>
+    </div>
+
+
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+  </body>
+</html>
